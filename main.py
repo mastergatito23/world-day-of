@@ -15,13 +15,6 @@ root.title("World Day Of v1.5")
 root.geometry("600x350")  
 root.minsize(400, 250)
 
-# Icono
-try:
-    ico = Image.open('test.jpg')
-    photo = ImageTk.PhotoImage(ico)
-    root.wm_iconphoto(False, photo)
-except Exception as e:
-    print(f"Icono no cargado: {e}")
 
 # ==========================================
 # Lógica de Datos (JSON & Datetime)
