@@ -1,19 +1,19 @@
-# World Day Of 🌍 — v1.7
+# World Day Of 🌍 — v2.0
 
-A modern, lightweight desktop application built with **Python** that allows users to quickly discover and search for "World Days" celebrated around the globe.
+A modern, desktop application built with **Python** that allows users to instantly explore "World Days" celebrated globally.
 
-The application features a fully revamped UI with dark mode support, sleek responsive controls, advanced proactive notifications, and real-time search.
+The application features a dark mode layout, dual-panel navigation, real-time query caching, advance notifications, and a complete calendar view.
 
 ---
 
-## ✨ Features (v1.7)
+## ✨ Features (v2.0)
 
-* 🔍 **Instant Search Engine:** Filter through the entire database in real-time by keyword (e.g., *Peace*, *Water*) or by date format (e.g., *12-01* or *December*).
-* 🌍 **Comprehensive Database:** Loaded seamlessly from `dias_mundiales.json`.
-* ⭐ **Save Favorites:** Bookmark your preferred events locally inside `favorites.json`.
-* 📂 **Manage Bookmarks:** View your custom collections via an independent clean UI Window.
-* 🔔 **Proactive Alerts:** Scans your bookmarks automatically upon initialization to notify you if an event takes place **Today**, **Tomorrow**, or **In 2 days**.
-* 🔕 **Mute / Unmute System:** Quick notification silence switch that persists via local `settings.json`.
+* 📅 **Interactive Calendar Grid:** Browse any day of any month or year seamlessly. Click on any date to fetch its World Day details instantly.
+* 🎛️ **Month & Year Navigation:** Built-in transition controls to surf through past and upcoming months.
+* 🔍 **Instant Search Engine:** Live filtering by term or string pattern dynamically.
+* ⭐ **Favorites Manager:** Bookmarking capability into an independent local store (`favorites.json`).
+* 🔔 **Smart Alerts:** Proactive boot checking that notifies you if a favorited day is **Today**, **Tomorrow**, or **In 2 days**.
+* 🔕 **Persistence Settings:** Instantly mute or unmute notifications.
 
 ---
 
@@ -28,8 +28,6 @@ Make sure you have installed:
 ---
 
 ## 📥 Installation
-
-Install the required dependencies using pip:
 
 ```bash
 pip install customtkinter pillow
