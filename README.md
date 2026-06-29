@@ -1,19 +1,19 @@
-# World Day Of 🌍 — v1.6.2
+# World Day Of 🌍 — v1.7
 
-A modern, lightweight desktop application built with **Python** that allows users to quickly discover which "World Days" are celebrated yesterday, today, and tomorrow[cite: 4].
+A modern, lightweight desktop application built with **Python** that allows users to quickly discover and search for "World Days" celebrated around the globe.
 
-The application features a fully revamped UI with dark mode support, sleek responsive controls[cite: 4], and an advanced notification system.
+The application features a fully revamped UI with dark mode support, sleek responsive controls, advanced proactive notifications, and real-time search.
 
 ---
 
-## ✨ Features (v1.6.2)
+## ✨ Features (v1.7)
 
-* 🌍 **Real World Day database** loaded directly from `dias_mundiales.json`[cite: 3, 4].
-* ⭐ **Save your favorite World Days** locally in `favorites.json`[cite: 3, 4].
-* 📂 **Open your favorites anytime** in a dedicated separate window[cite: 3, 4].
-* 🔔 **Smart Notifications:** Automatically scans your favorites on startup and alerts you if one of them is **today, tomorrow, or in 2 days (pasado mañana)**.
-* 🔕 **Mute / Unmute system:** Easily toggle notifications on or off with a dynamic button[cite: 3]. Your preference is saved in `settings.json`[cite: 3].
-* 🎨 **Clean modern UI** powered by CustomTkinter[cite: 4].
+* 🔍 **Instant Search Engine:** Filter through the entire database in real-time by keyword (e.g., *Peace*, *Water*) or by date format (e.g., *12-01* or *December*).
+* 🌍 **Comprehensive Database:** Loaded seamlessly from `dias_mundiales.json`.
+* ⭐ **Save Favorites:** Bookmark your preferred events locally inside `favorites.json`.
+* 📂 **Manage Bookmarks:** View your custom collections via an independent clean UI Window.
+* 🔔 **Proactive Alerts:** Scans your bookmarks automatically upon initialization to notify you if an event takes place **Today**, **Tomorrow**, or **In 2 days**.
+* 🔕 **Mute / Unmute System:** Quick notification silence switch that persists via local `settings.json`.
 
 ---
 
@@ -21,9 +21,9 @@ The application features a fully revamped UI with dark mode support, sleek respo
 
 Make sure you have installed:
 
-1. **Python 3.x** (3.10+ recommended)[cite: 4]
-2. **customtkinter**[cite: 4]
-3. **pillow**[cite: 4]
+1. **Python 3.x** (3.10+ recommended)
+2. **customtkinter**
+3. **pillow**
 
 ---
 
