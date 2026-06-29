@@ -1,5 +1,6 @@
 import tkinter as tk
 import customtkinter as ctk
+from tkinter import messagebox
 from datetime import datetime, timedelta
 import json
 import os
@@ -11,14 +12,15 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 root = ctk.CTk()
-root.title("World Day Of")
-root.geometry("600x400")
-root.minsize(400, 250)
+root.title("World Day Of — v1.6.2 (Anticipated)")
+root.geometry("600x450")
+root.minsize(400, 300)
 
 # ==========================================
 # FILES
 # ==========================================
 FAVORITES_FILE = "favorites.json"
+SETTINGS_FILE = "settings.json"
 ultimo_dia = None
 
 
@@ -43,12 +45,11 @@ def obtener_dia_mundial(fecha):
 
 
 # ==========================================
-# FAVORITES SYSTEM ⭐
+# FAVORITES & SETTINGS SYSTEM ⭐🔔
 # ==========================================
 def cargar_favoritos():
     if not os.path.exists(FAVORITES_FILE):
         return []
-
     try:
         with open(FAVORITES_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -59,6 +60,21 @@ def cargar_favoritos():
 def guardar_favoritos(data):
     with open(FAVORITES_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
+
+
+def cargar_configuracion():
+    if not os.path.exists(SETTINGS_FILE):
+        return {"muted": False}
+    try:
+        with open(SETTINGS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return {"muted": False}
+
+
+def guardar_configuracion(config):
+    with open(SETTINGS_FILE, "w", encoding="utf-8") as f:
+        json.dump(config, f, indent=4, ensure_ascii=False)
 
 
 def agregar_favorito():
@@ -82,6 +98,7 @@ def mostrar_favoritos():
     ventana = ctk.CTkToplevel(root)
     ventana.title("Favorites ⭐")
     ventana.geometry("500x400")
+    ventana.after(100, lambda: ventana.focus())
 
     title = ctk.CTkLabel(
         ventana,
@@ -102,6 +119,52 @@ def mostrar_favoritos():
         box.insert("end", "No favorites yet 😢")
 
     box.configure(state="disabled")
+
+
+def alternar_silencio():
+    config = cargar_configuracion()
+    config["muted"] = not config["muted"]
+    guardar_configuracion(config)
+    actualizar_boton_mute(config["muted"])
+
+
+def actualizar_boton_mute(is_muted):
+    if is_muted:
+        btn_mute.configure(text="🔕 Unmute Notifications", fg_color="#E74C3C", hover_color="#C0392B")
+    else:
+        btn_mute.configure(text="🔔 Mute Notifications", fg_color="#2ECC71", hover_color="#27AE60")
+
+
+def verificar_notificaciones():
+    config = cargar_configuracion()
+    if config.get("muted", False):
+        return
+
+    favs = cargar_favoritos()
+    if not favs:
+        return
+
+    # Definimos los días a revisar: hoy (0), mañana (1) y pasado mañana (2)
+    ahora = datetime.now()
+    fechas_a_revisar = {
+        0: (ahora.strftime("%B %d"), "Today"),
+        1: ((ahora + timedelta(days=1)).strftime("%B %d"), "Tomorrow"),
+        2: ((ahora + timedelta(days=2)).strftime("%B %d"), "In 2 days (Pasado mañana)")
+    }
+
+    alertas = []
+
+    for dias_de_distancia, (fecha_str, etiqueta) in fechas_a_revisar.items():
+        for fav in favs:
+            if fav.startswith(fecha_str):
+                partes = fav.split("\n")
+                if len(partes) > 1:
+                    nombre_dia = partes[1]
+                    alertas.append(f"• [{etiqueta}] 🎉 {nombre_dia}")
+
+    if alertas:
+        alert_text = "📅 Upcoming Favorite World Days:\n\n" + "\n".join(alertas)
+        messagebox.showinfo("🔔 World Day Reminder", alert_text)
 
 
 # ==========================================
@@ -170,5 +233,17 @@ frame2.pack(pady=10)
 
 ctk.CTkButton(frame2, text="⭐ Add Favorite", command=agregar_favorito).pack(side="left", padx=5)
 ctk.CTkButton(frame2, text="📂 Favorites", command=mostrar_favoritos).pack(side="left", padx=5)
+
+# Notifications Control Frame
+frame3 = ctk.CTkFrame(root, fg_color="transparent")
+frame3.pack(pady=15)
+
+btn_mute = ctk.CTkButton(frame3, text="🔔 Mute Notifications", command=alternar_silencio)
+btn_mute.pack(side="left", padx=5)
+
+# Inicializar y lanzar notificaciones con antelación
+config_inicial = cargar_configuracion()
+actualizar_boton_mute(config_inicial.get("muted", False))
+root.after(500, verificar_notificaciones)
 
 root.mainloop()
