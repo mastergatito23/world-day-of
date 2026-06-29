@@ -1,28 +1,35 @@
 # World Day Of 🌍
 
-A modern, lightweight desktop application built with **Python** that allows users to quickly discover which "World Days" are celebrated yesterday, today, and tomorrow. 
+A modern, lightweight desktop application built with **Python** that allows users to quickly discover which "World Days" are celebrated yesterday, today, and tomorrow.
 
 The application features a fully revamped UI with dark mode support and sleek, responsive controls.
 
 ---
 
-## ✨ Features (v1.5)
+## ✨ Features (v1.6)
 
-*   ℹ️ **Real Information:** Most of the World Days are here.
-*   📋 **Modify:** A day is missing? You can add it in `dias_mundiales.json` or make a issue.
+* 🌍 Real World Day database
+* ⭐ Save your favorite World Days
+* 📂 Open your favorites anytime in a separate window
+* 💾 Favorites stored locally using JSON
+* 📋 Easy editing via `dias_mundiales.json`
+* 🎨 Clean modern UI using CustomTkinter
 
 ---
 
 ## 🛠️ Prerequisites
 
-Before running the application, ensure you have Python installed on your system, along with the required libraries for the modern interface and icon support.
+Make sure you have installed:
 
-1. **Python 3.x** (Preferably 3.12 or newer)
-2. **CustomTkinter:** Used for the modern UI widgets and dark mode support.
-3. **Pillow (PIL):** Used for handling application images and icons.
+1. **Python 3.x** (3.10+ recommended)
+2. **customtkinter**
+3. **pillow**
 
-### 📥 Installation
+---
 
-You can install all the required dependencies at once using `pip`:
+## 📥 Installation
 
+Install dependencies:
+
+```bash
 pip install customtkinter pillow
