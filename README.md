@@ -4,6 +4,7 @@ A modern, desktop application built with **Python** that allows users to instant
 
 The application features a dark mode layout, dual-panel navigation, real-time query caching, advance notifications, and a complete calendar view.
 
+**WARNING! | THIS PROJECT IS UNMANTEINED**
 ---
 
 ## ✨ Features (v2.0)
