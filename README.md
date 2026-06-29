@@ -1,19 +1,19 @@
-# World Day Of 🌍
+# World Day Of 🌍 — v1.7
 
-A modern, lightweight desktop application built with **Python** that allows users to quickly discover which "World Days" are celebrated yesterday, today, and tomorrow.
+A modern, lightweight desktop application built with **Python** that allows users to quickly discover and search for "World Days" celebrated around the globe.
 
-The application features a fully revamped UI with dark mode support and sleek, responsive controls.
+The application features a fully revamped UI with dark mode support, sleek responsive controls, advanced proactive notifications, and real-time search.
 
 ---
 
-## ✨ Features (v1.6)
+## ✨ Features (v1.7)
 
-* 🌍 Real World Day database
-* ⭐ Save your favorite World Days
-* 📂 Open your favorites anytime in a separate window
-* 💾 Favorites stored locally using JSON
-* 📋 Easy editing via `dias_mundiales.json`
-* 🎨 Clean modern UI using CustomTkinter
+* 🔍 **Instant Search Engine:** Filter through the entire database in real-time by keyword (e.g., *Peace*, *Water*) or by date format (e.g., *12-01* or *December*).
+* 🌍 **Comprehensive Database:** Loaded seamlessly from `dias_mundiales.json`.
+* ⭐ **Save Favorites:** Bookmark your preferred events locally inside `favorites.json`.
+* 📂 **Manage Bookmarks:** View your custom collections via an independent clean UI Window.
+* 🔔 **Proactive Alerts:** Scans your bookmarks automatically upon initialization to notify you if an event takes place **Today**, **Tomorrow**, or **In 2 days**.
+* 🔕 **Mute / Unmute System:** Quick notification silence switch that persists via local `settings.json`.
 
 ---
 
@@ -29,7 +29,7 @@ Make sure you have installed:
 
 ## 📥 Installation
 
-Install dependencies:
+Install the required dependencies using pip:
 
 ```bash
 pip install customtkinter pillow
