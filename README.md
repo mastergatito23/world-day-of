@@ -1,10 +1,7 @@
-# World Day Of 🌍 — v2.0
+# 🛑 World Day Of [DESCONTINUADO / DISCONTINUED]
 
-A modern, desktop application built with **Python** that allows users to instantly explore "World Days" celebrated globally.
+> **Aviso:** Este proyecto ha sido descontinuado y ya no recibe mantenimiento ni actuali
 
-The application features a dark mode layout, dual-panel navigation, real-time query caching, advance notifications, and a complete calendar view.
-
-**WARNING! | THIS PROJECT IS UNMANTEINED**
 ---
 
 ## ✨ Features (v2.0)
